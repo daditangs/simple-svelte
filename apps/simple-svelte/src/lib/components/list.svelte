@@ -53,7 +53,7 @@
         <td>{item.name}</td>
         <td>{item.email}</td>
         <td>{item.phone}</td>
-        <td href="/1">Edit</td>
+        <td><a href="{'edit/' + item.id}">Edit</a></td>
       </tr>
     {/each}
   </tbody>
