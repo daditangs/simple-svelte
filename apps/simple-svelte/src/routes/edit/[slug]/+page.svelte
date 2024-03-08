@@ -1,7 +1,8 @@
 <script>
-  export let name = '';
-  export let email = '';
-  export let phone = '';
+  export let data;
+  export let name = data.data.name;
+  export let email = data.data.email;
+  export let phone = data.data.phone;
 
   function handleSubmit() {
     // Handle form submission here
@@ -12,7 +13,7 @@
   }
 </script>
 
-<h1> Edit Data </h1>
+<h1> Edit Data {data.slug} </h1>
 <form on:submit={handleSubmit}>
   <label for="name">Name:</label>
   <input type="text" id="name" bind:value={name} />
