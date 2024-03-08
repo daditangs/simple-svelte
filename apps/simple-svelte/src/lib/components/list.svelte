@@ -1,20 +1,8 @@
 <script>
   import { onMount } from 'svelte';
 
-  let data = [
-    {
-      name: 'Betsy',
-      email: 'betsy@email.com',
-      phone: '12345678',
-      id: '1',
-    }
-  ];
+  export let data = [];
 
-  onMount(async () => {
-    // Fetch data from the service
-    const response = await fetch('https://api.example.com/data');
-    data = await response.json();
-  });
 </script>
 
 <style>
