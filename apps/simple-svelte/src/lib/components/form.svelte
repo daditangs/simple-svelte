@@ -21,6 +21,10 @@
 		console.log('Form submitted');
 		console.log('data:', data);
 	}
+
+	function goBack() {
+		history.back();
+	}
 </script>
 
 <form on:submit={handleSubmit}>
@@ -58,7 +62,11 @@
 			<input type="tel" id="statusDescription" bind:value={data.statusDescription} />
 		</div>
 	</div>
-	<button type="submit">Submit</button>
+	<div class="button-container">
+		<button on:click={goBack}>Back</button>
+		<button type="submit">Submit</button>
+	</div>
+
 </form>
 
 <style>
@@ -95,5 +103,11 @@
 
 	button:hover {
 		background-color: #267bb7;
+	}
+
+	.button-container {
+		display: flex;
+		justify-content: space-between;
+		grid-gap: 10px;
 	}
 </style>
