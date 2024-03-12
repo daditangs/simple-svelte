@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { seafarerList } from '$stores/stores.js';
 
-	/** @type {import('./$types').PageData} */
-	export let data: {
+	/** @type {import('./$types').PageformData} */
+	export let formData: {
 		id: number;
 		fullName: string;
 		vesselName: string;
@@ -18,8 +19,8 @@
 
 	function handleSubmit() {
 		// Handle form submission here
-		console.log('Form submitted');
-		console.log('data:', data);
+		seafarerList.update(_seafarer => _seafarer.map(_s => _s.id.toString() === formData.id.toString() ? formData : _s));
+		history.back();
 	}
 
 	function goBack() {
@@ -31,35 +32,35 @@
 	<div class="container">
 		<div>
 			<label for="fullName">Full Name:</label>
-			<input type="text" id="fullName" bind:value={data.fullName} />
+			<input type="text" id="fullName" bind:value={formData.fullName} />
 		</div>
 		<div>
 			<label for="primaryEmail">Primary Email:</label>
-			<input type="email" id="primaryEmail" bind:value={data.primaryEmail} />
+			<input type="email" id="primaryEmail" bind:value={formData.primaryEmail} />
 		</div>
 		<div>
 			<label for="primaryMobile">Primary Mobile:</label>
-			<input type="tel" id="primaryMobile" bind:value={data.primaryMobile} />
+			<input type="tel" id="primaryMobile" bind:value={formData.primaryMobile} />
 		</div>
 		<div>
 			<label for="dateOfBirth">Date Of Birth:</label>
-			<input type="tel" id="dateOfBirth" bind:value={data.dateOfBirth} />
+			<input type="tel" id="dateOfBirth" bind:value={formData.dateOfBirth} />
 		</div>
 		<div>
 			<label for="vesselName">Vessel Name:</label>
-			<input type="tel" id="vesselName" bind:value={data.vesselName} />
+			<input type="tel" id="vesselName" bind:value={formData.vesselName} />
 		</div>
 		<div>
 			<label for="source">Source:</label>
-			<input type="tel" id="source" bind:value={data.source} />
+			<input type="tel" id="source" bind:value={formData.source} />
 		</div>
 		<div>
 			<label for="primaryStatus">Primary Status:</label>
-			<input type="tel" id="primaryStatus" bind:value={data.primaryStatus} />
+			<input type="tel" id="primaryStatus" bind:value={formData.primaryStatus} />
 		</div>
 		<div>
 			<label for="statusDescription">Status Description:</label>
-			<input type="tel" id="statusDescription" bind:value={data.statusDescription} />
+			<input type="tel" id="statusDescription" bind:value={formData.statusDescription} />
 		</div>
 	</div>
 	<div class="button-container">

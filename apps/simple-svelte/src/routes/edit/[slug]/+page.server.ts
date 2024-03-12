@@ -1,9 +1,7 @@
-import { seafarers } from '../../../data';
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export async function load({ params }: { params: any }) {
 	return {
-		slug: params.slug,
-		seafarer: seafarers.filter((item) => item.id.toString() === params.slug)[0]
+		slug: params.slug
 	};
 }
