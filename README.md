@@ -17,8 +17,3 @@ This is a simple Svelte application that demonstrates the basic usage of Svelte 
 1. Start the development server: `pnpm --filter simple-svelte dev`
 2. Open your browser and visit: `http://localhost:5173/`
 
-## Features
-
-- Feature 1: Description of feature 1.
-- Feature 2: Description of feature 2.
-- Feature 3: Description of feature 3.
