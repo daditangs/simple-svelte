@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@nx/eslint": "18.1.2",
+    "@nx/playwright": "18.1.2",
+    "@nx/vite": "18.1.2",
+    "eslint": "~8.48.0",
+    "nx": "18.1.2"
+  },
+  "dependencies": {}
 }
