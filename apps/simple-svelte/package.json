@@ -27,9 +27,9 @@
 		"eslint-plugin-svelte": "^2.35.1",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
-		"svelte-preprocess-react": "^0.17.0",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
+		"svelte-preprocess-react": "^0.17.0",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"vite": "^5.0.3",
@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"shared-ui": "workspace:*"
+		"shared-ui": "workspace:*",
+		"svelte-use-form": "^2.10.0"
 	}
 }

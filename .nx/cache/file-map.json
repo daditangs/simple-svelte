@@ -1,0 +1,205 @@
+{
+  "version": "6.0",
+  "nxVersion": "18.1.2",
+  "deps": {
+    "@nx/eslint": "18.1.2",
+    "@nx/playwright": "18.1.2",
+    "@nx/vite": "18.1.2",
+    "eslint": "~8.48.0",
+    "nx": "18.1.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".gitignore",
+        "hash": "15820102459318008705"
+      },
+      {
+        "file": "README.md",
+        "hash": "4762483049214706114"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1025739210934058173"
+      },
+      {
+        "file": "package.json",
+        "hash": "747720389920047452"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "5043968714069322663"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "324862774530036549"
+      }
+    ],
+    "projectFileMap": {
+      "shared-ui": [
+        {
+          "file": "libs/shared-ui/button.tsx",
+          "hash": "2303885498984676995"
+        },
+        {
+          "file": "libs/shared-ui/index.tsx",
+          "hash": "1180149877029284130"
+        },
+        {
+          "file": "libs/shared-ui/package.json",
+          "hash": "4956146803103409731",
+          "deps": [
+            "npm:@types/node",
+            "npm:react",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "libs/shared-ui/tsconfig.json",
+          "hash": "3520642357414817056"
+        }
+      ],
+      "simple-svelte": [
+        {
+          "file": "apps/simple-svelte/.eslintignore",
+          "hash": "12866345277008372755"
+        },
+        {
+          "file": "apps/simple-svelte/.eslintrc.cjs",
+          "hash": "15647399974590712086"
+        },
+        {
+          "file": "apps/simple-svelte/.gitignore",
+          "hash": "9815671046980959070"
+        },
+        {
+          "file": "apps/simple-svelte/.npmrc",
+          "hash": "16306061729883149313"
+        },
+        {
+          "file": "apps/simple-svelte/.prettierignore",
+          "hash": "14944193782101443844"
+        },
+        {
+          "file": "apps/simple-svelte/.prettierrc",
+          "hash": "405103432484641903"
+        },
+        {
+          "file": "apps/simple-svelte/README.md",
+          "hash": "11542502170952645301"
+        },
+        {
+          "file": "apps/simple-svelte/package.json",
+          "hash": "11410553141881783055",
+          "deps": [
+            "shared-ui",
+            "npm:@playwright/test",
+            "npm:@sveltejs/adapter-auto",
+            "npm:@sveltejs/kit",
+            "npm:@sveltejs/vite-plugin-svelte",
+            "npm:@types/eslint",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-svelte",
+            "npm:prettier",
+            "npm:prettier-plugin-svelte",
+            "npm:svelte-preprocess-react",
+            "npm:svelte",
+            "npm:svelte-check",
+            "npm:tslib",
+            "npm:typescript",
+            "npm:vite",
+            "npm:vitest"
+          ]
+        },
+        {
+          "file": "apps/simple-svelte/playwright.config.ts",
+          "hash": "2563297502597556445"
+        },
+        {
+          "file": "apps/simple-svelte/src/app.d.ts",
+          "hash": "17522384083550949823"
+        },
+        {
+          "file": "apps/simple-svelte/src/app.html",
+          "hash": "11363292425121998912"
+        },
+        {
+          "file": "apps/simple-svelte/src/data.js",
+          "hash": "14239937958992440756"
+        },
+        {
+          "file": "apps/simple-svelte/src/index.test.ts",
+          "hash": "4899821940437047382"
+        },
+        {
+          "file": "apps/simple-svelte/src/lib/components/form.svelte",
+          "hash": "17149527588018303246"
+        },
+        {
+          "file": "apps/simple-svelte/src/lib/components/list.svelte",
+          "hash": "10928488587682432028"
+        },
+        {
+          "file": "apps/simple-svelte/src/lib/index.ts",
+          "hash": "4692936798736377880"
+        },
+        {
+          "file": "apps/simple-svelte/src/routes/+layout.svelte",
+          "hash": "6094026521303109201"
+        },
+        {
+          "file": "apps/simple-svelte/src/routes/+page.svelte",
+          "hash": "8587945704631353628"
+        },
+        {
+          "file": "apps/simple-svelte/src/routes/edit/[slug]/+page.server.ts",
+          "hash": "7435264713502477698"
+        },
+        {
+          "file": "apps/simple-svelte/src/routes/edit/[slug]/+page.svelte",
+          "hash": "13814474802457640956"
+        },
+        {
+          "file": "apps/simple-svelte/src/stores/stores.js",
+          "hash": "7851996500167870953"
+        },
+        {
+          "file": "apps/simple-svelte/static/favicon.png",
+          "hash": "11504680974745960892"
+        },
+        {
+          "file": "apps/simple-svelte/static/mock/seafarer.json",
+          "hash": "12559668519890980153"
+        },
+        {
+          "file": "apps/simple-svelte/svelte.config.js",
+          "hash": "5965539438455990660"
+        },
+        {
+          "file": "apps/simple-svelte/tests/test.ts",
+          "hash": "16596097029166692734"
+        },
+        {
+          "file": "apps/simple-svelte/tsconfig.json",
+          "hash": "9587272287367897807"
+        },
+        {
+          "file": "apps/simple-svelte/vite.config.ts",
+          "hash": "6755486746913286723"
+        }
+      ]
+    }
+  }
+}
