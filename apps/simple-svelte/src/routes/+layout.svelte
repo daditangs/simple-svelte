@@ -28,11 +28,12 @@
 		console.log('Initialize application...');
 
 		console.log('Generating code verifier...');
-		code_verifier = 'd0zTjaJMUaM1RyXoYaomqLQNZAoAjzAMKhYPzCa2YgI'; //generateRandomString(43);
+		code_verifier = generateCodeVerifier();
 		console.log('Code verifier:', code_verifier);
 
 		console.log('Encrypting code challenge using SHA-256..');
-		code_challenge = '0FvyvC3HDJHPx2EAVwrBIqAnMH2OD00-GsQ2tOS9I1Q'; //await sha256(code_verifier);
+    const hashed = await sha256(code_verifier);
+    code_challenge = base64urlEncode(hashed);
 		console.log('Code challenge:', code_challenge);
 
 		const authCode = $page.url.searchParams.get('code');
@@ -82,28 +83,37 @@
 		}
 	});
 
-  // This is working
-	function generateRandomString(length) {
-		const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-		let result = '';
-		const charactersLength = characters.length;
-		for (let i = 0; i < length; i++) {
-			result += characters.charAt(Math.floor(Math.random() * charactersLength));
-		}
-		return result;
-	}
+function base64urlEncode(buffer) {
+  const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    let _str = '';
+    for (let i = 0; i < len; i++) {
+      _str += String.fromCharCode(bytes[i]);
+    }
+    return btoa(_str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+  
 
-  // This is not working
-	export async function sha256(input) {
-		const encoder = new TextEncoder();
-		const data = encoder.encode(input);
-		const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-		const hashArray = Array.from(new Uint8Array(hashBuffer));
-		const hashHex = hashArray.map((byte) => byte.toString(16).padStart(2, '0')).join('');
-		return hashHex;
-	}
+  function decimalToHex(decimal) {
+    return `0${decimal.toString(16)}`.slice(-2);
+  }
 
-	async function login() {
+  function generateCodeVerifier() {
+    const array = new Uint32Array(28);
+    window.crypto.getRandomValues(array);
+    return Array.from(array, decimalToHex).join('');
+  }
+
+  async function sha256(plain) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(plain);
+    return window.crypto.subtle.digest('SHA-256', data);
+  }
+
+
+
+
+  async function login() {
 		try {
 			const href = `${authUrl}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&code_challenge=${code_challenge}&code_challenge_method=${code_challenge_method}&scope=${scope}&response_mode=${response_mode}&state=${state}&nonce=${nonce}`;
 			console.log('Auth URL: ', href);
