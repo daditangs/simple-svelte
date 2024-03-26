@@ -1,9 +1,6 @@
 <script>
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { useForm } from 'svelte-use-form';
-	const form = useForm();
-	let user = { loggedIn: false };
 
 	// Common
 	const client_id = '6ies508cg5gv8opi71n24fktd3';
