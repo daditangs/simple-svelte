@@ -72,7 +72,7 @@
 				console.error('There was a problem with the token request:', error);
 			}
 		} else {
-			console.log('Missing authorization code. Click "Authorize" to proceed');
+			login();
 		}
 	});
 
@@ -122,49 +122,22 @@
 		}
 	}
 
-	async function reset() {
-		window.location.href = 'http://localhost:4173';
-	}
 </script>
 
-{#if user.loggedIn}
-	<nav>
-		<a href="/">Home</a>
-	</nav>
 
-	<slot />
+
+{#if accessToken?.length < 1}
+	<p style="color: red;">User is not authorized</p>
+{:else}
+		<nav>
+			<a href="/">Home</a>
+		</nav>
+		<slot />
 {/if}
 
-{#if !user.loggedIn}
-	<form use:form>
-		<h1>Login Page</h1>
-
-		{#if accessToken?.length < 1}
-			<p style="color: red;">User is not authorized</p>
-		{:else}
-			<p style="color: green;">User has been authorized</p>
-		{/if}
-
-		<!-- <input type="email" name="email" use:validators={[required, email]} />
-		<HintGroup for="email">
-			<Hint on="required">This is a mandatory field</Hint>
-			<Hint on="email" hideWhenRequired>Email is not valid</Hint>
-		</HintGroup>
-
-		<input type="password" name="password" use:validators={[required]} />
-		<Hint for="password" on="required">This is a mandatory field</Hint> -->
-
-		{#if accessToken?.length < 1}
-			<button disabled={!$form.valid} on:click={login}>Authorize</button>
-		{:else}
-			<button on:click={reset}>Reset</button>
-		{/if}
-	</form>
-
-	<style>
-		:global(.touched:invalid) {
-			border-color: red;
-			outline-color: red;
-		}
-	</style>
-{/if}
+<style>
+	:global(.touched:invalid) {
+		border-color: red;
+		outline-color: red;
+	}
+</style>
